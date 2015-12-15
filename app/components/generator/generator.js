@@ -14,6 +14,7 @@ app.directive("travel",function(){
         template: '<ul>'+
                     '<li><span style="">2015-11-11</span></li>'+
                     '<li><span>北美国际上午中心</span></li>'+
+
                     '<li><span>北京市昌平去天通苑地铁</span></li>'+
                    '</ul>'
     }
