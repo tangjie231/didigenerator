@@ -1,10 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'generator'
-]).
-config(['$routeProvider', function($routeProvider) {
-  //$routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+define(['angular','components/generator/generator'],function(angular){
+  angular.module('suyun', ['generator']);
+});
+
