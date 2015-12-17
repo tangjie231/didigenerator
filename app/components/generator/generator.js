@@ -1,9 +1,9 @@
 define(['angular'],function(angular){
     var app = angular.module("generator", []);
 
-    app.controller("travelCtrl",function($scope){
+    app.controller("travelCtrl",['$scope',function($scope){
         $scope.travels = null;
-    });
+    }]);
 
     app.directive("travel",function(){
         var item = {

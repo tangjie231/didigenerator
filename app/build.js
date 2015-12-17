@@ -1,7 +1,8 @@
 /**
- * Created by lenovo on 2015/12/15.
+ * Created by lenovo on 2015/12/16.
  */
-require.config({
+({
+    mainConfigFile:'main.js',
     baseUrl:'../app',
     paths:{
         jquery:'lib/jquery',
@@ -17,7 +18,7 @@ require.config({
         },
         'uiRouter':{
             deps:['angular']
-           // exports:'uiRouter'
+            // exports:'uiRouter'
         },
         zui:{
             deps:['jquery'],
@@ -28,17 +29,8 @@ require.config({
             exports:'msgBox'
         }
     },
-    urlArgs: "bust=" +  (new Date()).getTime()
-});
-require(['msgBox','app','angular'],function(msgBox,app,angular){
-    //var $html = angular.element(document.getElementsByTagName('html')[0]);
-    angular.element().ready(function() {
-        // bootstrap the app manually
-        angular.bootstrap(document, ['suyun']);
-        MsgBox.alert("提示", "提示");
-    });
-   /* $(function() {
-        index.sayHello("require");
-    });*/
-});
-
+    fileExclusiongRegExp:/^(r|build)\.js|.*\.scss$|^(bower|node)/,
+    //excludeShallow:["angular","jquery"],
+    name:'main',
+    out:'main-built.js'
+})

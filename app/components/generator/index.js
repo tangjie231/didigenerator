@@ -4,7 +4,7 @@
 define(['jquery'],function($){
     var index = {
         sayHello:function(name){
-            console.log("hello jie  " + name);
+            console.log("hello  " + name);
         }
     }
 

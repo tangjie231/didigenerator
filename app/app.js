@@ -1,7 +1,22 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-define(['angular','components/generator/generator'],function(angular){
-  angular.module('suyun', ['generator']);
+define(['angular','uiRouter',
+    'components/generator/generator',
+    'components/ctrls/calCtrl'],function(angular){
+    //console.log(index.sayHello("angular "));angular
+    var app = angular.module('suyun', ['generator','ui.router','cal']);
+    app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
+             $urlRouterProvider.otherwise("/one");
+
+             $stateProvider.state("one",{
+                 url:"/one",
+                 templateUrl:"views/temp/one.html"
+             }).state("cal",{
+                 url:"/cal",
+                 templateUrl:"views/temp/cal.html"
+             })
+
+     }]);
 });
 
