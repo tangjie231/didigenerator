@@ -25,7 +25,11 @@ define(['angular','uiRouter',
                      'second':{
                          url:"",
                          template:"<div>INNER HTML SECOND CONTENT</div>"
-                     }
+                     },
+                     'test@':{
+                         url:"",
+                         template:"<div>INNER HTML TEST CONTENT</div>"
+                     },
                  }
              })
 
