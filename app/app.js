@@ -13,8 +13,20 @@ define(['angular','uiRouter',
                  url:"/one",
                  templateUrl:"views/temp/one.html"
              }).state("cal",{
-                 url:"/cal",
+                 url:"/cal/{content}",
                  templateUrl:"views/temp/cal.html"
+             }).state("cal.inner",{
+                 url:"/inner",
+                 views:{
+                     'first':{
+                         url:"",
+                         template:"<div>INNER HTML FIRST CONTENT</div>"
+                     },
+                     'second':{
+                         url:"",
+                         template:"<div>INNER HTML SECOND CONTENT</div>"
+                     }
+                 }
              })
 
      }]);

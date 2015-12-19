@@ -7,7 +7,10 @@
 <body>
     <div ng-controller="CalCtrl">
         <a href="#" ui-sref="one">首页</a>
+        <a href="#" ui-sref=".inner">嵌套页</a>
         <a href="" ng-click="showAlert()">点我啊</a>
+        <div ui-view="first">init</div>
+        <div ui-view="second">init</div>
     </div>
 </body>
 </html>
