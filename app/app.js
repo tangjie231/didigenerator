@@ -18,7 +18,7 @@ define(['angular','uiRouter',
              }).state("cal.inner",{
                  url:"/inner",
                  views:{
-                     'first':{
+                     'first@cal':{
                          url:"",
                          template:"<div>INNER HTML FIRST CONTENT</div>"
                      },
