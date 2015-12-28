@@ -6,7 +6,7 @@ define(["angular"],function(angular){
     pager.service("pagerService", function () {
         var service = {
             sayHello:function(name){
-                console.log("hello "+name);
+                console.log("hell "+name);
             }
         }
         return service;

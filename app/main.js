@@ -20,17 +20,12 @@ require.config({
            // exports:'uiRouter'
         },
         zui:{
-            deps:['jquery','css!../app/css/zui.css','css!app.css'],
+            deps:['jquery'],
             exports:'zui'
         },
         msgBox:{
             deps:['zui'],
             exports:'msgBox'
-        }
-    },
-    map: {
-        '*': {
-            'css': 'lib/css'
         }
     },
     urlArgs: "bust=" +  (new Date()).getTime()

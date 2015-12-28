@@ -4,13 +4,18 @@
 ({
     mainConfigFile:'main.js',
     baseUrl:'../app',
+    optimizeCss: "standard",
+    //cssIn: "main.css",
+    //out: "css-optimized.css",
+    //separateCSS: true,
     paths:{
         jquery:'lib/jquery',
         //index:'components/generator/index',
         angular:'lib/angular',
         uiRouter:'lib/angular-ui-router',
         zui:'lib/zui',
-        msgBox:'lib/msg.hint'
+        msgBox:'lib/msg.hint',
+        requireLib:"lib/require"
     },
     shim:{
         'angular':{
