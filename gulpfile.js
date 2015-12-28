@@ -5,8 +5,7 @@ var gulp = require('gulp');
 var uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     rjs = require('gulp-requirejs'),
-    nano = require('gulp-cssnano'),
-    minifyCss = require('gulp-minify-css');
+    nano = require('gulp-cssnano');
 
 var paths = {
     scripts: ['app/lib/*.js', 'app/components/**/*.js'],
