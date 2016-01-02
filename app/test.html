@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body ng-app="myApp">
+<span ng-init="hello='world'"></span>
+
+<input type="text" ng-model="content"/>
+<div ng-controller="parent">
+    content in parent : {{content}}<br/>
+    <button ng-click="changeContent('parent')">click me</button>
+    <div ng-controller="child">
+       content in child :{{content}}<br/>
+        <button ng-click="changeContent('child')">click me</button>
+    </div>
+</div>
+</body>
+<script src="lib/angular.js"></script>
+<script>
+    var app = angular.module('myApp', [])
+            .directive('sidebox', function () {
+                return {
+                    restrict: 'EA',
+                    transclude: true,
+                    scope:true,
+                    template: '<div class="sidebox">\
+            <div class="content" ng-cloak>\
+                <h2 class="header">{{ title }}:{{content}}</h2>\
+                <span class="content" ng-cloak ng-transclude>\
+                </span>\
+            </div>\
+        </div>'
+                };
+            });
+
+    app.controller("parent",function($scope){
+        $scope.changeContent = function(content){
+            $scope.content = content;
+        }
+    });
+    app.controller("child",function($scope){
+        $scope.content = "test";
+        $scope.changeContent = function(content){
+            $scope.content = content;
+        }
+    });
+</script>
+</html>
