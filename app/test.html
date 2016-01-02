@@ -32,6 +32,7 @@
             template:'<div>'+
                         '<button ng-click="perPage()">上一页</button>&nbsp;<button ng-click="nextPage()">下一页</button>'+
                     '</div>',
+
             controller:function($scope){
                 console.log($scope.page);
                 $scope.page = {"items":[{"content":"hello"},{"content":"world"}]};
