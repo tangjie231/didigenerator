@@ -6,46 +6,55 @@
 
 </head>
 <body ng-app="myApp">
-<span ng-init="hello='world'"></span>
+    <div ng-controller="pagerCtrl">
+        <div ng-repeat="item in page.items">
+            <span>{{item.content}}</span><br/>
+        </div>
 
-<input type="text" ng-model="content"/>
-<div ng-controller="parent">
-    content in parent : {{content}}<br/>
-    <button ng-click="changeContent('parent')">click me</button>
-    <div ng-controller="child">
-       content in child :{{content}}<br/>
-        <button ng-click="changeContent('child')">click me</button>
+        <div pagenation  page="page"></div>
+        <div>
+            <button >上一页</button>&nbsp;<button>下一页</button>
+        </div>
     </div>
-</div>
+
 </body>
 <script src="lib/angular.js"></script>
 <script>
-    var app = angular.module('myApp', [])
-            .directive('sidebox', function () {
-                return {
-                    restrict: 'EA',
-                    transclude: true,
-                    scope:true,
-                    template: '<div class="sidebox">\
-            <div class="content" ng-cloak>\
-                <h2 class="header">{{ title }}:{{content}}</h2>\
-                <span class="content" ng-cloak ng-transclude>\
-                </span>\
-            </div>\
-        </div>'
-                };
-            });
+    var app = angular.module('myApp', []);
 
-    app.controller("parent",function($scope){
-        $scope.changeContent = function(content){
-            $scope.content = content;
+    app.directive("pagenation",function(){
+        return {
+            restrict:'AE',
+            scope:{
+                //change:"&",
+                page:"="
+            },
+            template:'<div>'+
+                        '<button ng-click="perPage()">上一页</button>&nbsp;<button ng-click="nextPage()">下一页</button>'+
+                    '</div>',
+            controller:function($scope){
+                console.log($scope.page);
+                $scope.page = {"items":[{"content":"hello"},{"content":"world"}]};
+                $scope.perPage = function(){
+                    //console.log(page);
+                    //page = {"items":[{"content":"two"},{"content":"one"}]};
+                    $scope.page = {"items":[{"content":"two"},{"content":"one"}]};
+                };
+
+                $scope.nextPage = function(){
+                    //console.log(page);
+                    //page = {"items":[{"content":"two"},{"content":"one"}]};
+                    $scope.page = {"items":[{"content":"one"},{"content":"two"}]};
+                };
+            }
         }
     });
-    app.controller("child",function($scope){
-        $scope.content = "test";
-        $scope.changeContent = function(content){
-            $scope.content = content;
-        }
+
+    app.controller("pagerCtrl",function($scope){
+        console.log("run here");
+        $scope.page = {};//{"items":[{"content":"one"},{"content":"two"}]};
+
     });
+
 </script>
 </html>
