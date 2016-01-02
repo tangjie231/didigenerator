@@ -12,9 +12,6 @@
         </div>
 
         <div pagenation  page="page"></div>
-        <div>
-            <button >上一页</button>&nbsp;<button>下一页</button>
-        </div>
     </div>
 
 </body>
@@ -30,22 +27,22 @@
                 page:"="
             },
             template:'<div>'+
-                        '<button ng-click="perPage()">上一页</button>&nbsp;<button ng-click="nextPage()">下一页</button>'+
+                        '<button ng-click="perPage()" ng-disabled="page.currPage==1">上一页</button>&nbsp;<button ng-click="nextPage()" ng-disabled="page.currPage==2">下一页</button>'+
                     '</div>',
 
             controller:function($scope){
                 console.log($scope.page);
-                $scope.page = {"items":[{"content":"hello"},{"content":"world"}]};
+                $scope.page = {"items":[{"content":"hello"},{"content":"world"}],"currPage":2};
                 $scope.perPage = function(){
                     //console.log(page);
                     //page = {"items":[{"content":"two"},{"content":"one"}]};
-                    $scope.page = {"items":[{"content":"two"},{"content":"one"}]};
+                    $scope.page = {"items":[{"content":"two"},{"content":"one"}],"currPage":1};
                 };
 
                 $scope.nextPage = function(){
                     //console.log(page);
                     //page = {"items":[{"content":"two"},{"content":"one"}]};
-                    $scope.page = {"items":[{"content":"one"},{"content":"two"}]};
+                    $scope.page = {"items":[{"content":"one"},{"content":"two"}],"currPage":2};
                 };
             }
         }
